@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Character_Manager : MonoBehaviour
 {
-    public List<Character_AI> characterList = new List<Character_AI>(); 
+    //[HideInInspector]
+    public GameObject[] characterlist;
     void Start()
     {
-        
+        characterlist = GameObject.FindGameObjectsWithTag("character");
     }
 
     // Update is called once per frame

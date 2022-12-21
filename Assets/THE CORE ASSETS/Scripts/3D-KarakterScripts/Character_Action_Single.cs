@@ -26,10 +26,10 @@ public class Character_Action_Single : MonoBehaviour
 
     void Update()
     {
-        if (manager.currentactivity == componentstring && isActive == false)
+        if (manager.funtionAvailable && manager.currentactivity == componentstring)
         {
             StartCoroutine(SnigularAction());
-            isActive = true;
+            manager.funtionAvailable = false;
         }
     }
 
@@ -48,6 +48,7 @@ public class Character_Action_Single : MonoBehaviour
         }
         isActive = false;
         animator.SetBool(ActieCommando, false);
+        manager.funtionAvailable = false;
         manager.Manager();
     }
 }

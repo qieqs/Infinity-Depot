@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class Character_Action_Loop : MonoBehaviour
 {
-    private bool isActive;
     private Animator animator;
     private NavMeshAgent agent;
     private Character_AI manager;
@@ -26,10 +25,10 @@ public class Character_Action_Loop : MonoBehaviour
 
     void Update()
     {
-        if (manager.currentactivity == componentstring && isActive == false)
+        if (manager.funtionAvailable && manager.currentactivity == componentstring)
         {
             StartCoroutine(DoTheAction());
-            isActive = true;
+            manager.funtionAvailable = false;
         }
     }
 
@@ -38,7 +37,7 @@ public class Character_Action_Loop : MonoBehaviour
         animator.SetBool(ActieCommando, true);
         yield return new WaitForSeconds(Random.Range(5,10));
         animator.SetBool(ActieCommando, false);
-        isActive = false;
+        manager.funtionAvailable = false;
         manager.Manager();
     }
 }
