@@ -39,11 +39,11 @@ public class Character_AI_2D : MonoBehaviour
 
     public void addwander()
     {
-        gameObject.AddComponent<Character_Wander>();
+        gameObject.AddComponent<Character_Wander_2D>();
     }
     public void addActionSingle()
     {
-        gameObject.AddComponent<Character_Action_Single>();
+        gameObject.AddComponent<Character_Action_Loop>();
     }
     public void addActionLoop()
     {
